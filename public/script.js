@@ -28,7 +28,7 @@ updateChart()
 
 setInterval(() => {
   $.ajax({
-    url: 'http://localhost:3000/',
+    url: 'https://humiditytemperature.herokuapp.com/',
     type: 'get',
     contentType: 'application/json',
     crossDomain: true,
