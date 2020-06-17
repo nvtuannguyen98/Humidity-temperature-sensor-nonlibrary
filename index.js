@@ -13,11 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(cors())
-app.use(morgan('dev', {
-  skip: function (req, res) {
-    return !new RegExp('^/api.*$').test(req.originalUrl)
-  }
-}))
+app.use(morgan('dev'))
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
@@ -50,6 +46,6 @@ router.get('/', function (req, res) {
 
 app.use(router)
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!')
 })
